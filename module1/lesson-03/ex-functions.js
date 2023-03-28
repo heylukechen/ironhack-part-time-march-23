@@ -36,10 +36,41 @@ function printStars(word){
 }
 
 console.log('printStars', printStars("Johnny"))
+
 // Write a function that takes in two parameters "length" and "height" and prints out a rectangle of stars
 // i.e: 3,2 ---> ***
 //               ***
 
+function calculateStars(length, height){
+    let tempString = "";
+    for (let i = 0; i < height; i++){
+        for (let j = 0; j < length; j++){
+            tempString += "*";
+        }
+        if(i !== height -1 ){
+            tempString += "\n";
+        } else if (i === height - 1 ){
+            tempString += "";
+        }
+    } 
+    return tempString;
+}
+
+console.log(calculateStars(5,12));
+
+
 // Write a function that takes in an array of integers and returns the average of the array
 // i.e: [2,5,8] ---> 5
 //      [1,2,3] ---> 2
+let newArrayforNumbers = [2,24,4];
+
+function averageArray(arrayisHere){
+    let sum = 0;
+    for (let i=0; i< arrayisHere.length; i++){
+        sum += arrayisHere[i];
+    }
+    let average = sum/arrayisHere.length;
+    return average;
+}
+
+console.log(averageArray(newArrayforNumbers));

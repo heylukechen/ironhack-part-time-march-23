@@ -47,11 +47,9 @@ function calculateStars(length, height){
         for (let j = 0; j < length; j++){
             tempString += "*";
         }
-        if(i !== height -1 ){
+        if(i < height -1 ){
             tempString += "\n";
-        } else if (i === height - 1 ){
-            tempString += "";
-        }
+        } 
     } 
     return tempString;
 }

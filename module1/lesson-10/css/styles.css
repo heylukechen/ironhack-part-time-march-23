@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Teko&display=swap');
+
+header {
+    width: 100vw; /* get 100% of the device screen viewport width */
+    height: 713px;
+    /* left: 0px;
+    top: 0px; */
+    background: url('../images/header-background.jpg');
+    background-repeat: no-repeat;
+    background-size: 50% 50%;
+    background-position: center center;
+}
+
+nav {
+    width: 100%;
+    /* border: 1px solid black; */
+}
+
+h1{
+    font-family: 'Teko';
+    font-size: 400px;
+    font-weight: 400;
+    line-height: 573px;
+    letter-spacing: 0em;
+    text-align: left;
+
+}
+ul {
+    /* border: 1px solid red; */
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 30px;
+    padding-right: 36px;
+    padding-left: 37px;
+     /* 
+    
+     */
+}
+
+button {
+    background-color: black;
+    color: white;
+    width: 169px;
+    height: 55px;
+}

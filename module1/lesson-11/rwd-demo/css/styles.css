@@ -1,0 +1,57 @@
+html {
+  font-size: 10px;
+}
+
+body {
+    background-color: brown;
+}
+
+ul {
+    width: 100%;
+    display: flex;
+    list-style-type: none;
+    justify-content: space-around;
+    font-size: 20px;
+}
+
+li {
+  font-size: 2em;
+}
+
+#mobile-navigation{
+    display: none;
+}
+
+#navigation {
+    display: block;
+    background-color: aquamarine;
+    font-size: 1.6rem; /*16px */
+}
+
+/* mobile design styling */
+@media screen and (max-width: 480px) {
+    body {
+      background-color: lightgreen;
+    }
+
+    #mobile-navigation{
+        display: block;
+        background-color: blueviolet;
+        
+    }
+
+    #navigation {
+        display: none;
+    }
+  }
+
+  /* tablet design styling */
+  @media screen and (min-width: 480px) and (max-width: 769px) {
+    body {
+      background-color: indigo;
+      font-weight: 400;
+      background-color: indigo;
+      color: yellow;
+      font-size: 1.8rem;
+    }
+  }

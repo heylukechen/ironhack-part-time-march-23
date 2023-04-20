@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Collegiate+One&family=Montserrat:wght@600&display=swap');
+/* color pallette: https://coolors.co/14110f-34312d-7e7f83-d9c5b2-f3f3f4 */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-size: 10px;
+    font-family: 'Montserrat';
+    color: #14110F;
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+    height: 4rem;
+    border-radius: 1.2rem;
+    font-size: 1.4rem;
+    font-weight: bold;
+    background-color: #d9c5b2;
+    margin-top: 1.2rem;
+}
+
+#hero {
+    width: 100vw;
+    height: 70vh;
+    background-color: #F3F3F4;
+    display: flex;
+}
+
+.hero-image {
+    width: 50%;
+    height: 100%;
+    background-image: url("../images/shoe-tilt.jpg");
+    background-position: center right;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.hero-image:hover {
+    background-image: url("../images/shoe-tilt-black.jpg");
+    cursor: pointer;
+    margin-left: 15%;
+}
+
+.hero-image-alternative {
+    width: 50%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-secondary-image {
+    height: 100%;
+}
+
+.hero-image:hover, .product:hover  {
+    transform: scaleX(-1);
+
+}
+
+.hero-image-alternative > h1 {
+    text-align: center;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+#product-description {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-summary {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#product-highlights {
+    background-color: #F3F3F4;
+    display: flex;
+}
+
+#highlights-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+footer {
+    width: 100vw;
+    height: 10rem;
+    background-color: #d9c5b2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+    #hero {
+        width: 100vw;
+        height: 100vh;
+        display: block;
+    }
+
+    .hero-image {
+        display: none;
+    }
+
+    .hero-image-alternative, .product-summary, #product-highlights {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .hero-image-alternative > h1 {
+        font-size: 15px;
+    }
+
+    .hero-image-alternative > img {
+        width: 100%;
+        height: 50%;
+    }
+
+    #product-description {
+        width: 100vw;
+        height: 1200px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .product-summary > h2 {
+        font-size: 10px;
+    }
+
+    #product-highlights {
+        background-color: #F3F3F4;
+    }
+
+    #product-highlights > a {
+        margin-bottom: 15px;
+    }
+
+    .product {
+        width: 100%;
+        height: 250px;
+        margin-bottom: 12px;
+    }
+}

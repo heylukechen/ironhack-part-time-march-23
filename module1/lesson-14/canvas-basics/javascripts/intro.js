@@ -33,10 +33,10 @@ function draw(x, y) {
     // calls itself every 30ms
 
     if( y < 0){
-        setTimeout(`draw(300,300)`, 30);
+        setTimeout(`draw(300,300)`, 10);
     }
     else {
-        setTimeout(`draw(${x}, ${y})`, 30);
+        setTimeout(`draw(${x}, ${y})`, 10);
     }
     // recursively call draw(3, 0)
     // setTimeout(()=>{

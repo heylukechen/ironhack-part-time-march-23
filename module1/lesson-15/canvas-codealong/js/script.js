@@ -1,5 +1,32 @@
 const myObstacles = [];
 
+const myGameArea = {
+  canvas: document.createElement('canvas'),
+  frames: 0,
+  stop: function () { // stop the game
+      clearInterval(this.interval);
+    },
+  start: function () {
+    this.canvas.width = 480;
+    this.canvas.height = 270;
+    this.context = this.canvas.getContext('2d');
+    document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+    this.interval = setInterval(updateGameArea, 20); // execute updateGameArea every 20ms --> updateGameArea gets called 50 times per second
+  },
+  score: function () {
+    const points = Math.floor(this.frames / 5);
+    this.context.font = '18px serif';
+    this.context.fillStyle = 'black';
+    this.context.fillText(`Score: ${points}`, 350, 50);
+  },
+  clear: function () {
+      this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    },
+};
+
+
+// initialize the Game Area
+
 class Component {
     constructor(width, height, color, x, y) {
       this.width = width;
@@ -48,13 +75,18 @@ class Component {
       }
 }
 
+const player = new Component(30, 30, 'red', 0, 110); // generate the player 
+
+
 function updateGameArea() { // updating our Game
+    myGameArea.frames += 1; // 1sec ---> 50 frames 120 frames === 2.4s
     myGameArea.clear(); // clear Canvas
     player.newPos(); // update 
     player.update(); // update the player's position
     // update the backGround movement
     updateObstacles(); // draws obstacles on Canvas
     checkGameOver(); // check if player collides with one obstacle
+    myGameArea.score();
 }
 
 function updateObstacles() {
@@ -63,7 +95,6 @@ function updateObstacles() {
         myObstacles[i].update(); // showing the new position of the obstacle
     }
 
-    myGameArea.frames += 1; // 1sec ---> 50 frames 120 frames === 2.4s
 
     if (myGameArea.frames % 120 === 0) { // if myGameArea.frames === 0 || myGameArea.frames === x * 120
     // console.log(myGameArea.frames)
@@ -91,31 +122,11 @@ function updateObstacles() {
     }
   }
 
-const myGameArea = {
-    canvas: document.createElement('canvas'),
-    frames: 0,
-    stop: function () { // stop the game
-        clearInterval(this.interval);
-      },
-    start: function () {
-      this.canvas.width = 480;
-      this.canvas.height = 270;
-      this.context = this.canvas.getContext('2d');
-      document.body.insertBefore(this.canvas, document.body.childNodes[0]);
-      this.interval = setInterval(updateGameArea, 20); // execute updateGameArea every 20ms --> updateGameArea gets called 50 times per second
-    },
-    clear: function () {
-        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-      },
-  };
-
-
-myGameArea.start() // initialize the Game Area
-
-const player = new Component(30, 30, 'red', 0, 110); // generate the player 
 
 document.addEventListener('keydown', (e) => {
     switch (e.keyCode) {
+      case 32:
+        location.reload(); // 
       case 38: // up arrow
       // trigger the jump
         player.speedY -= 1;
@@ -136,3 +147,19 @@ document.addEventListener('keyup', (e) => {
     player.speedX = 0;
     player.speedY = 0;
 });
+
+window.onload = myGameArea.start();
+
+window.onload = function(){
+  // document.getElementById('start-button').onclick = function(){
+  //   startGame();
+  // };
+  document.getElementById('start-button').addEventListener('click', function(){
+    startGame();
+  })
+
+  function startGame() {
+    //write the logic to start the game here
+
+  }
+};

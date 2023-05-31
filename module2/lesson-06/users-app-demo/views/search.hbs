@@ -1,0 +1,15 @@
+<form action="/search" method="GET">
+  <label>
+  Username
+    <input type="text" name="username">
+  </label>
+  <button type="submit">SEARCH</button>
+</form>
+
+{{#if foundUsers}}
+
+{{#each foundUsers}}
+    <p>Found user {{username}}</p>
+{{/each}}
+
+{{/if}}

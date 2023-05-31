@@ -1,0 +1,22 @@
+<div class="search-container">
+    <h1><u>Search Page</u></h1>
+    <br />
+    <form action="/searchResults" method="GET">
+        <fieldset>
+            <legend>Form using <b>GET</b>:</legend>
+            <input type="search" name="title" placeholder="Search for a movie...">
+            <input type="search" name="year" placeholder="Year...">
+            <button type="submit">Search</button>
+        </fieldset>
+    </form>
+    <br>
+    <form action="/searchResults" method="POST">
+        <fieldset>
+            <legend>Form using <b>POST</b>:</legend>
+            <input type="search" name="movieName" placeholder="Search for a movie...">
+            <input type="text" name="genre" placeholder="Genre...">
+            <input type="search" name="year" placeholder="Year...">
+            <button type="submit">Search</button>
+        </fieldset>
+    </form>
+</div>

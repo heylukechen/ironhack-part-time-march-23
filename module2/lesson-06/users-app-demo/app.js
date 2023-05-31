@@ -31,7 +31,8 @@ app.post('/signup', (req, res)=>{
     User.create(req.body)
     .then( newUser => {
         console.log('newUser', newUser)
-        res.redirect('/')  // Send the user to the Homepage
+        res.redirect('/users')
+        // res.redirect(`/profile/${newUser.username}`)  // Send the user to the Homepage
     })
     .catch(err => console.log(err))
 })
@@ -39,16 +40,47 @@ app.post('/signup', (req, res)=>{
 app.get('/users', (req, res) => {
     // Send the users in my Db to the front end
     User.find()
-    .then(allUsers => {
-        console.log('allUsers', allUsers);
-        res.render('users', { allUsers });
-        // const updateUsers = allUsers.map(user => {
-        //     return {username: `Mr ${user.username}`}
+        // .then(() => {
+        //     return User.findOneAndUpdate({username: 'Luke'}, {username:'Mr. Luke'})
         // })
-        // res.render('users', { allUsers: updateUsers });
-    })
-    .catch(err => console.log(err))
+        // .then(() => {
+        //     return User.findOneAndRemove({username: 'Mr. Luke'})
+        // })
+        // .then(() => {
+        //    return User.find()
+        // })
+        .then(allUsers => {
+            console.log('allUsers', allUsers);
+
+            // const addTitle = allUsers.map(user => {
+            //     return {
+            //         username: `Mr. ${user.username}`,
+            //     }
+            // }).filter(user => user.username !== 'Mr. Luke');
+
+            res.render('users', { allUsers });
+            // const updateUsers = allUsers.map(user => {
+            //     return {username: `Mr ${user.username}`}
+            // })
+            // res.render('users', { allUsers: updateUsers });
+        })
+        .catch(err => console.log(err))
     
+})
+
+app.get('/search', (req, res) =>{
+    console.log(req.query)
+    if(req.query.username !== ''){ // make sure that the input is not empty
+        // search the DB for a user with a  matching username
+        User.find({username: req.query.username})
+            .then(foundUsers => {
+                res.render('search', {foundUsers: foundUsers})
+            })
+    }
+    else {
+        res.render('search')
+    }
+   
 })
 
 app.get('/profile/:username', (req, res) => {

@@ -28,6 +28,7 @@ function MovieList() {
         IMDBRating
     }
     console.log('newMovie', newMovie);
+
     const updateMovieList = [...movies, newMovie];
     // const updateMovieList = [...movies]
     // updateMovieList.push(newMovie)

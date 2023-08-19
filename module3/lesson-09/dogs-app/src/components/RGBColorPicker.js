@@ -13,7 +13,7 @@ function RGBColorPicker(){
             <SingleColorPicker color={"b"} value={bValue}  onChange={(e) => setBValue(Number(e.target.value))}/>
             {/* <SingleColorPicker color={"rgb"} value={[rValue, gValue, bValue]} onChange={null}/> */}
             <div style={{width: '10px', height: '10px', background: `rgb(${rValue}, ${gValue}, ${bValue})`}}>
-
+                
             </div>
         </>
     )
